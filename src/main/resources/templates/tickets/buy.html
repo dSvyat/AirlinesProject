@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:inline="javascript">
+        var cities = /*[[${cities}]]*/ [];
+
+        function updateArrivalOptions(selectedDeparture) {
+            var $arrivalSelect = $("#arrival");
+            $arrivalSelect.empty();
+            cities.forEach(function (city) {
+                if (city !== selectedDeparture) {
+                    $arrivalSelect.append(new Option(city, city));
+                }
+            });
+        }
+
+        function updateDepartureOptions(selectedArrival) {
+            var $departureSelect = $("#departure");
+            $departureSelect.empty();
+            cities.forEach(function (city) {
+                if (city !== selectedArrival) {
+                    $departureSelect.append(new Option(city, city));
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $("#departure").change(function () {
+                var selectedDeparture = $(this).val();
+                updateArrivalOptions(selectedDeparture);
+            });
+
+            $("#arrival").change(function () {
+                var selectedArrival = $(this).val();
+                updateDepartureOptions(selectedArrival);
+            });
+        });
+    </script>
+
+</head>
+<body>
+<form th:method="POST" th:action="@{/tickets}" th:object="${ticket}">
+    <label for="departure">Select arrival: </label>
+    <select th:object="${ticket}" th:field="*{departure}" id="departure">
+        <option th:each="city:${cities}" th:value="${city}" th:text="${city}">
+        </option>
+    </select>
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{'departure'}">Departure Error</div>
+    <br>
+
+    <label for="arrival">Select departure: </label>
+    <select th:object="${ticket}" th:field="*{arrival}" id="arrival">
+        <option th:each="city:${cities}" th:value="${city}" th:text="${city}" th:unless="${city==ticket.departure}">
+        </option>
+    </select>
+    <br>
+    <button type="submit">Buy Ticket</button>
+</form>
+<a href="/hello">
+    <button>Back</button>
+</a>
+</body>
+</html>

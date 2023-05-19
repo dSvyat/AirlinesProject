@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/planes/{id}/edit(id=${plane.getId()})}" th:object="${plane}">
+    <label for="model">Enter new model</label>
+    <input type="text" th:field="*{model}" id="model"/>
+    <div style="color:red" th:if="${#fields.hasErrors('model')}" th:errors="*{model}">Name Error</div>
+    <br>
+
+    <label for="capacity">Enter new capacity</label>
+    <input type="text" th:field="*{capacity}" id="capacity"/>
+    <div style="color:red" th:if="${#fields.hasErrors('capacity')}" th:errors="*{capacity}">Capacity Error</div>
+    <br>
+
+    <label for="productionYear">Enter new Production year</label>
+    <input type="text" th:field="*{productionYear}" id="productionYear"/>
+    <div style="color:red" th:if="${#fields.hasErrors('productionYear')}" th:errors="*{productionYear}">Production year Error</div>
+    <br>
+    <input type="submit" value="Edit"/>
+</form>
+<a href="/planes">
+    <button>Back</button>
+</a>
+</body>
+</html>

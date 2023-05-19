@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:text="${'Hello, ' + person.getUsername()}">xwdwww</div>
+<form th:action="@{/logout}" th:method="POST">
+<input type="submit" value="Log out">
+</form>
+<a href="/person-info">
+    <button>Account</button>
+</a>
+<br>
+<a href="/tickets">
+    <button>My tickets</button>
+</a>
+<br>
+<a href="/tickets/buy">
+    <button>Buy ticket</button>
+</a>
+<br>
+<div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+    <a href="/admin">
+        <button>Admin page</button>
+    </a>
+</div>
+</body>
+</html>

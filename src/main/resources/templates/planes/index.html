@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="plane : ${planes}">
+    <div th:utext="${'Model: ' + plane.getModel() + '<br>' + 'Production year: ' + plane.getProductionYear()
+        + '<br>' + 'Capacity: ' + plane.getCapacity()}"></div>
+    <a th:href="@{/planes/{id}/edit(id=${plane.getId()})}">
+        <button>Edit</button>
+    </a>
+    <form th:method="DELETE" th:action="@{/planes/{id}(id=${plane.getId()})}">
+        <input type="submit" value="Delete"/>
+    </form>
+    <hr>
+</div>
+<a href="/admin">
+    <button>Back</button>
+</a>
+</body>
+</html>

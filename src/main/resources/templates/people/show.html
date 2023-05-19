@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:text="${'Name: ' + person.getName()}"></div>
+<div th:text="${'Username: ' + person.getUsername()}"></div>
+<div th:text="${'Birth year: ' + person.getBirthYear()}"></div>
+<div th:text="${'Email: ' + person.getEmail()}"></div>
+<div th:text="${'Role: ' + person.getRole()}"></div>
+<div th:text="${'Registration date: ' + person.getRegistrationDate()}"></div>
+<a href="/edit">
+    <button>Edit</button>
+</a>
+<br>
+<a href="/hello">
+    <button>Back</button>
+</a>
+</body>
+</html>

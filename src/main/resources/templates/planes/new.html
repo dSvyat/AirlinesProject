@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/planes}" th:object="${plane}">
+    <label for="model">Enter model:</label>
+    <input type="text" th:field="*{model}" id="model"/>
+    <div style="color:red" th:if="${#fields.hasErrors('model')}" th:errors="*{model}">Model error</div>
+    <br>
+
+    <label for="productionYear">Enter production year:</label>
+    <input type="text" th:field="*{productionYear}" id="productionYear"/>
+    <div style="color: red" th:if="${#fields.hasErrors('productionYear')}" th:errors="*{productionYear}">Model error</div>
+    <br>
+
+    <label for="capacity">Enter capacity:</label>
+    <input type="text" th:field="*{capacity}" id="capacity"/>
+    <div style="color: red" th:if="${#fields.hasErrors('capacity')}" th:errors="*{capacity}">Model error</div>
+    <br>
+    <input type="submit" value="Create"/>
+</form>
+</body>
+</html>
