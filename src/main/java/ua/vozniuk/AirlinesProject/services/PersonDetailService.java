@@ -1,7 +1,6 @@
 package ua.vozniuk.AirlinesProject.services;
 
-import
-.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
