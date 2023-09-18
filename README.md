@@ -1,5 +1,5 @@
 # AirlinesProject
 Spring security/boot project
 
-This project is based on Spring Security, where you, as a user, can log in/sign up, buy tickets, edit your account details, etc. As an admin, you can additionally manage planes by creating or editing them.
-The planes for tickets are chosen randomly, and if you delete a plane associated with a ticket, a new plane will be automatically chosen for that ticket. SQL code for creating tables and inserting admins you can find in src/main/java/ua/vozniuk/AirlinesProject/sql/sql.
+Design, development and successful implementation database structure on MySQL to store entities: flight, route, transfer, booking, passenger, etc. Implementation logic for creating new route, find best transfer, book flight.
+This is not the full project, as the employer permits me to only post my part of the code, to which I added basic HTML.
